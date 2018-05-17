@@ -17,10 +17,15 @@ var text = '';
 
 function main(){
   if(database == null){
-    console.log("Usage: node SQLClient.js [host] [username] [password] [database]");
+    console.log("Usage: node SQLClient.js [host] [username] [password] [database] [command(optional)]");
   }else{
     // while(!(text == 'quit' || text == 'exit')){
+    if(process.argv[6]!=null){
+      text =process.argv[6]
+    }
+    if(text==''){
       text = readline.question(user + "@" + host +">");
+    }
       logQuery(text);
     // }
   }
